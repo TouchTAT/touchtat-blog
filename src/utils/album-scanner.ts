@@ -147,7 +147,9 @@ function externalPhotos(albumId: string, rawPhotos: unknown): AlbumPhoto[] {
 				title: title || undefined,
 				description: stringValue(raw.description) || undefined,
 				tags: stringArray(raw.tags),
-				date: dateValue(raw.date),
+				date: stringValue(raw.date)
+					? dateValue(raw.date, "") || undefined
+					: undefined,
 				location: stringValue(raw.location) || undefined,
 				width: numberValue(raw.width),
 				height: numberValue(raw.height),

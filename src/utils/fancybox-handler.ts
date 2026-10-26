@@ -98,11 +98,7 @@ export class FancyboxHandler {
 		if (!this.Fancybox) {
 			await this.loadFancybox();
 		}
-		const config = getDefaultFancyboxConfig();
-		this.Fancybox.show(items, {
-			...config,
-			Carousel: { ...config.Carousel, startIndex },
-		});
+		this.Fancybox.show(items, getDefaultFancyboxConfig(startIndex));
 	}
 
 	/**

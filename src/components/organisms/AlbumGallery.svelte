@@ -3,6 +3,7 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import { openFancyboxGallery } from "@utils/fancybox-handler";
+import { buildAlbumSlides } from "@utils/album-viewer";
 import { url } from "@utils/url-utils";
 import type { AlbumLayout, AlbumPhoto } from "@/types/album";
 
@@ -51,11 +52,10 @@ function rememberNaturalRatio(photo: AlbumPhoto, event: Event) {
 	measuredRatios[photo.id] = image.naturalWidth / image.naturalHeight;
 }
 
-function openPhoto(event: MouseEvent, photo: AlbumPhoto) {
+function openPhoto(event: MouseEvent, index: number) {
 	event.preventDefault();
 	event.stopPropagation();
-	const fullSrc = photo.src ? url(photo.src) : "";
-	void openFancyboxGallery([{ src: fullSrc }]);
+	void openFancyboxGallery(buildAlbumSlides(visiblePhotos, url), index);
 }
 
 function ratio(photo: AlbumPhoto): string {
@@ -68,7 +68,6 @@ function ratio(photo: AlbumPhoto): string {
 			<div
 				class="album-gallery album-gallery--{layout}"
 				style={`--album-columns: ${columns}`}
-				role="list"
 				aria-label={i18n(I18nKey.imageViewer)}
 			>
 		{#each visiblePhotos as photo, index (photo.id)}
@@ -77,7 +76,7 @@ function ratio(photo: AlbumPhoto): string {
 					class="album-gallery__item"
 					style={`--album-photo-ratio: ${ratio(photo)}`}
 					aria-label={`${i18n(I18nKey.openImage)} ${index + 1}: ${photo.alt}`}
-						onclick={(event) => openPhoto(event, photo)}
+						onclick={(event) => openPhoto(event, index)}
 				>
 					<img
 					src={url(photo.thumbnail || photo.src)}
@@ -89,6 +88,14 @@ function ratio(photo: AlbumPhoto): string {
 					referrerpolicy="no-referrer"
 					onload={(event) => rememberNaturalRatio(photo, event)}
 					/>
+					{#if photo.title || photo.description || photo.date || photo.location}
+						<span class="album-gallery__meta">
+							{#if photo.title}<strong>{photo.title}</strong>{/if}
+							{#if photo.description}<span>{photo.description}</span>{/if}
+							{#if photo.date}<time datetime={photo.date}>{photo.date}</time>{/if}
+							{#if photo.location}<span>{photo.location}</span>{/if}
+						</span>
+					{/if}
 				</button>
 		{/each}
 	</div>
@@ -158,6 +165,17 @@ function ratio(photo: AlbumPhoto): string {
 		> :global(svg)
 			width: 2rem
 			height: 2rem
+
+	&__meta
+		display: grid
+		gap: var(--m3e-space-1, 0.25rem)
+		padding: var(--m3e-space-3, 0.75rem)
+		font: var(--m3e-type-body-small)
+		color: var(--on-surface-variant)
+		overflow-wrap: anywhere
+		> strong
+			font: var(--m3e-type-title-small)
+			color: var(--on-surface)
 
 @media (max-width: 47.99rem)
 	.album-gallery--masonry

@@ -9,7 +9,8 @@ import type { FancyboxOptions } from "@fancyapps/ui";
 export type FancyboxConfig = Partial<FancyboxOptions>;
 
 // 默认 Fancybox 配置
-export const getDefaultFancyboxConfig = (): FancyboxConfig => ({
+export const getDefaultFancyboxConfig = (startIndex = 0): FancyboxConfig => ({
+	startIndex,
 	Carousel: {
 		infinite: true,
 		Lazyload: { preload: 3 },
