@@ -4,5 +4,5 @@ import { withUserConfig } from "../utils/config-overlay.ts";
 export const aboutConfig: AboutConfig = withUserConfig("about", {
 	enable: true,
 	title: "$t:about",
-	description: "$t:about",
+	description: "这个小站与它的主人",
 });

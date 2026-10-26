@@ -2,9 +2,9 @@ import Key from "../i18nKey-runtime.mjs";
 import type { Translation } from "../translation.ts";
 
 export const zh_CN: Translation = {
-	[Key.home]: "主页",
-	[Key.about]: "关于",
-	[Key.archive]: "归档",
+	[Key.home]: "首页",
+	[Key.about]: "关于我",
+	[Key.archive]: "文章归档",
 	[Key.archiveGroup]: "归档分组",
 	[Key.archiveGroupYear]: "按年份",
 	[Key.archiveGroupCategory]: "按分类",
@@ -13,16 +13,16 @@ export const zh_CN: Translation = {
 	[Key.clear]: "清除",
 
 	[Key.friends]: "友链",
-	[Key.friendsNoResults]: "没有符合条件的友链",
+	[Key.friendsNoResults]: "这里还没有友链，之后慢慢收集。",
 	[Key.friendsBanner]: "欢迎交换友链，申请方式见「关于」页。",
 	[Key.friendsCount]: "个友链",
 	[Key.friendsCounts]: "个友链",
 
-	[Key.moments]: "动态",
-	[Key.momentsNoResults]: "没有符合条件的动态",
+	[Key.moments]: "碎碎念",
+	[Key.momentsNoResults]: "没有符合条件的碎碎念",
 	[Key.momentsBanner]: "随手记录的碎碎念 —— 生活、折腾与一切小确幸。",
-	[Key.momentsCount]: "条动态",
-	[Key.momentsCounts]: "条动态",
+	[Key.momentsCount]: "条碎碎念",
+	[Key.momentsCounts]: "条碎碎念",
 	[Key.pinned]: "置顶",
 	[Key.loadMore]: "加载更多",
 
