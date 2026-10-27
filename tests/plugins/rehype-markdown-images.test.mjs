@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
-import { test } from "node:test";
+import { after, test } from "node:test";
+import { copyFileSync, mkdtempSync, rmSync } from "node:fs";
+import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
 	matchesNoReferrerDomain,
@@ -21,7 +24,19 @@ async function render(markdown) {
 	return code;
 }
 
-const IMAGE = "/images/albums/AcgExample/01.webp";
+const publicDirectory = fileURLToPath(
+	new URL("../../public/", import.meta.url),
+);
+const fixtureDirectory = mkdtempSync(
+	join(publicDirectory, ".markdown-image-test-"),
+);
+const fixtureImage = join(fixtureDirectory, "image.svg");
+copyFileSync(
+	new URL("../fixtures/markdown-image.svg", import.meta.url),
+	fixtureImage,
+);
+const IMAGE = `/${relative(publicDirectory, fixtureImage).replaceAll("\\", "/")}`;
+after(() => rmSync(fixtureDirectory, { recursive: true, force: true }));
 
 test("parses the w-N% width token out of alt text", () => {
 	assert.deepEqual(parseMarkdownImageAlt("A demo image w-50%"), {

@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { buildAlbumSlides } from "../src/utils/album-viewer.ts";
-import { scanAllAlbums } from "../src/utils/album-scanner.ts";
 import { getDefaultFancyboxConfig } from "../src/utils/fancybox-config.ts";
 
 test("Fancybox starts at the clicked slide through its top-level option", () => {
@@ -57,9 +59,31 @@ test("all caption fields escape HTML and quotes before reaching Fancybox", () =>
 	);
 });
 
-test("scanner does not fabricate a date when a photo has no date", () => {
-	const album = scanAllAlbums().find((item) => item.id === "sample");
-	assert.ok(album);
-	assert.equal(album.photos[0].date, "2026-10-27");
-	assert.equal(album.photos[2].date, undefined);
+test("scanner does not fabricate a date when a photo has no date", async () => {
+	const fixture = mkdtempSync(join(tmpdir(), "touchtat-album-test-"));
+	const originalDirectory = process.cwd();
+	try {
+		const albumDirectory = join(fixture, "public/images/albums/fixture");
+		mkdirSync(albumDirectory, { recursive: true });
+		writeFileSync(
+			join(albumDirectory, "info.json"),
+			JSON.stringify({
+				mode: "external",
+				cover: "/cover.svg",
+				photos: [{ src: "/one.svg", date: "2026-10-27" }, { src: "/two.svg" }],
+			}),
+		);
+		process.chdir(fixture);
+		const { scanAllAlbums } = await import(
+			"../src/utils/album-scanner.ts?isolated-fixture"
+		);
+		process.chdir(originalDirectory);
+		const album = scanAllAlbums()[0];
+		assert.ok(album);
+		assert.equal(album.photos[0].date, "2026-10-27");
+		assert.equal(album.photos[1].date, undefined);
+	} finally {
+		process.chdir(originalDirectory);
+		rmSync(fixture, { recursive: true, force: true });
+	}
 });
