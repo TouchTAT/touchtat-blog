@@ -1,0 +1,577 @@
+{
+  "mode": "external",
+  "title": "南京",
+  "description": "在南京行走时留下的城市片段。",
+  "cover": "/images/albums/nanjing/cover.webp",
+  "date": "2026-10-27",
+  "location": "南京",
+  "tags": [
+    "南京",
+    "旅行",
+    "摄影"
+  ],
+  "layout": "masonry",
+  "columns": 3,
+  "photos": [
+    {
+      "src": "/images/albums/nanjing/01.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/01.webp",
+      "alt": "南京摄影作品 01",
+      "title": "南京 · 01",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1710
+    },
+    {
+      "src": "/images/albums/nanjing/02.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/02.webp",
+      "alt": "南京摄影作品 02",
+      "title": "南京 · 02",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/03.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/03.webp",
+      "alt": "南京摄影作品 03",
+      "title": "南京 · 03",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/04.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/04.webp",
+      "alt": "南京摄影作品 04",
+      "title": "南京 · 04",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1810,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/05.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/05.webp",
+      "alt": "南京摄影作品 05",
+      "title": "南京 · 05",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1618
+    },
+    {
+      "src": "/images/albums/nanjing/06.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/06.webp",
+      "alt": "南京摄影作品 06",
+      "title": "南京 · 06",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1500,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/07.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/07.webp",
+      "alt": "南京摄影作品 07",
+      "title": "南京 · 07",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/08.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/08.webp",
+      "alt": "南京摄影作品 08",
+      "title": "南京 · 08",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1461
+    },
+    {
+      "src": "/images/albums/nanjing/09.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/09.webp",
+      "alt": "南京摄影作品 09",
+      "title": "南京 · 09",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/10.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/10.webp",
+      "alt": "南京摄影作品 10",
+      "title": "南京 · 10",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "src": "/images/albums/nanjing/11.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/11.webp",
+      "alt": "南京摄影作品 11",
+      "title": "南京 · 11",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1896
+    },
+    {
+      "src": "/images/albums/nanjing/12.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/12.webp",
+      "alt": "南京摄影作品 12",
+      "title": "南京 · 12",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1646
+    },
+    {
+      "src": "/images/albums/nanjing/13.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/13.webp",
+      "alt": "南京摄影作品 13",
+      "title": "南京 · 13",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1362,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/14.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/14.webp",
+      "alt": "南京摄影作品 14",
+      "title": "南京 · 14",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1583,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/15.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/15.webp",
+      "alt": "南京摄影作品 15",
+      "title": "南京 · 15",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1571
+    },
+    {
+      "src": "/images/albums/nanjing/16.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/16.webp",
+      "alt": "南京摄影作品 16",
+      "title": "南京 · 16",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 2394
+    },
+    {
+      "src": "/images/albums/nanjing/17.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/17.webp",
+      "alt": "南京摄影作品 17",
+      "title": "南京 · 17",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1978,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/18.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/18.webp",
+      "alt": "南京摄影作品 18",
+      "title": "南京 · 18",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1978,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/19.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/19.webp",
+      "alt": "南京摄影作品 19",
+      "title": "南京 · 19",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/20.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/20.webp",
+      "alt": "南京摄影作品 20",
+      "title": "南京 · 20",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1770,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/21.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/21.webp",
+      "alt": "南京摄影作品 21",
+      "title": "南京 · 21",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1709
+    },
+    {
+      "src": "/images/albums/nanjing/22.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/22.webp",
+      "alt": "南京摄影作品 22",
+      "title": "南京 · 22",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1631
+    },
+    {
+      "src": "/images/albums/nanjing/23.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/23.webp",
+      "alt": "南京摄影作品 23",
+      "title": "南京 · 23",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1113,
+      "height": 1666
+    },
+    {
+      "src": "/images/albums/nanjing/24.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/24.webp",
+      "alt": "南京摄影作品 24",
+      "title": "南京 · 24",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1660
+    },
+    {
+      "src": "/images/albums/nanjing/25.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/25.webp",
+      "alt": "南京摄影作品 25",
+      "title": "南京 · 25",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/26.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/26.webp",
+      "alt": "南京摄影作品 26",
+      "title": "南京 · 26",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1828,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/27.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/27.webp",
+      "alt": "南京摄影作品 27",
+      "title": "南京 · 27",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/28.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/28.webp",
+      "alt": "南京摄影作品 28",
+      "title": "南京 · 28",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 2417
+    },
+    {
+      "src": "/images/albums/nanjing/29.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/29.webp",
+      "alt": "南京摄影作品 29",
+      "title": "南京 · 29",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/30.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/30.webp",
+      "alt": "南京摄影作品 30",
+      "title": "南京 · 30",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/31.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/31.webp",
+      "alt": "南京摄影作品 31",
+      "title": "南京 · 31",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1267,
+      "height": 1399
+    },
+    {
+      "src": "/images/albums/nanjing/32.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/32.webp",
+      "alt": "南京摄影作品 32",
+      "title": "南京 · 32",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1733,
+      "height": 975
+    },
+    {
+      "src": "/images/albums/nanjing/33.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/33.webp",
+      "alt": "南京摄影作品 33",
+      "title": "南京 · 33",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1513
+    },
+    {
+      "src": "/images/albums/nanjing/34.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/34.webp",
+      "alt": "南京摄影作品 34",
+      "title": "南京 · 34",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1568
+    },
+    {
+      "src": "/images/albums/nanjing/35.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/35.webp",
+      "alt": "南京摄影作品 35",
+      "title": "南京 · 35",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/36.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/36.webp",
+      "alt": "南京摄影作品 36",
+      "title": "南京 · 36",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/37.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/37.webp",
+      "alt": "南京摄影作品 37",
+      "title": "南京 · 37",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1997,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/38.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/38.webp",
+      "alt": "南京摄影作品 38",
+      "title": "南京 · 38",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1738
+    },
+    {
+      "src": "/images/albums/nanjing/39.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/39.webp",
+      "alt": "南京摄影作品 39",
+      "title": "南京 · 39",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1441,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/40.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/40.webp",
+      "alt": "南京摄影作品 40",
+      "title": "南京 · 40",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1439,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/41.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/41.webp",
+      "alt": "南京摄影作品 41",
+      "title": "南京 · 41",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1661,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/42.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/42.webp",
+      "alt": "南京摄影作品 42",
+      "title": "南京 · 42",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1372
+    },
+    {
+      "src": "/images/albums/nanjing/43.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/43.webp",
+      "alt": "南京摄影作品 43",
+      "title": "南京 · 43",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1557
+    },
+    {
+      "src": "/images/albums/nanjing/44.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/44.webp",
+      "alt": "南京摄影作品 44",
+      "title": "南京 · 44",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1441
+    },
+    {
+      "src": "/images/albums/nanjing/45.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/45.webp",
+      "alt": "南京摄影作品 45",
+      "title": "南京 · 45",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "src": "/images/albums/nanjing/46.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/46.webp",
+      "alt": "南京摄影作品 46",
+      "title": "南京 · 46",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/47.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/47.webp",
+      "alt": "南京摄影作品 47",
+      "title": "南京 · 47",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/48.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/48.webp",
+      "alt": "南京摄影作品 48",
+      "title": "南京 · 48",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1088
+    },
+    {
+      "src": "/images/albums/nanjing/49.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/49.webp",
+      "alt": "南京摄影作品 49",
+      "title": "南京 · 49",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1709
+    },
+    {
+      "src": "/images/albums/nanjing/50.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/50.webp",
+      "alt": "南京摄影作品 50",
+      "title": "南京 · 50",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1709
+    },
+    {
+      "src": "/images/albums/nanjing/51.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/51.webp",
+      "alt": "南京摄影作品 51",
+      "title": "南京 · 51",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1709,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/52.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/52.webp",
+      "alt": "南京摄影作品 52",
+      "title": "南京 · 52",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1709
+    },
+    {
+      "src": "/images/albums/nanjing/53.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/53.webp",
+      "alt": "南京摄影作品 53",
+      "title": "南京 · 53",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1709
+    },
+    {
+      "src": "/images/albums/nanjing/54.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/54.webp",
+      "alt": "南京摄影作品 54",
+      "title": "南京 · 54",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 1789,
+      "height": 2560
+    },
+    {
+      "src": "/images/albums/nanjing/55.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/55.webp",
+      "alt": "南京摄影作品 55",
+      "title": "南京 · 55",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1009
+    },
+    {
+      "src": "/images/albums/nanjing/56.webp",
+      "thumbnail": "/images/albums/nanjing/thumbnails/56.webp",
+      "alt": "南京摄影作品 56",
+      "title": "南京 · 56",
+      "date": "2026-10-27",
+      "location": "南京",
+      "width": 2560,
+      "height": 1009
+    }
+  ]
+}
