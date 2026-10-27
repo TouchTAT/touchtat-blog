@@ -244,7 +244,8 @@ document.addEventListener('swup:content:replace', bindSearchTriggers);
 	}
 
 		.top-app-bar--transparent {
-			background: transparent;
+			/* Image-overlay fallback keeps white controls legible before theme initialization. */
+			background: color-mix(in oklab, var(--mc-scrim, #000000) 35%, transparent);
 			box-shadow: none;
 			backdrop-filter: none;
 			color: white;

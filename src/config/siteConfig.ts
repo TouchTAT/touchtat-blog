@@ -57,15 +57,15 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		// desktop 用于 >= 1024px；mobile 仅用于 < 1024px 的首页，手机非首页不显示壁纸。
 		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
 		src: {
-			desktop: ["/images/blog-banner.svg"],
-			mobile: ["/images/blog-banner.svg"],
+			desktop: ["assets/images/banner/spring-railway.png"],
+			mobile: ["assets/images/banner/spring-railway-mobile.png"],
 		},
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
 		position: "center",
 		dim: {
 			// 在图片上覆盖黑色遮罩以提高标题和顶部栏的对比度；opacity 范围为 0-1。
 			enable: true,
-			opacity: 0.24,
+			opacity: 0.32,
 		},
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。

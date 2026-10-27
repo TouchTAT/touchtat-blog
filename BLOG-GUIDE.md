@@ -117,10 +117,14 @@ draft: false
 - 昵称、头像、简介和社交链接：`src/config/profileConfig.ts`
 - 标题、网站正式地址、背景、主题色和时区：`src/config/siteConfig.ts`
 - 导航：`src/config/navBarConfig.ts`
-- 通用头像：`public/images/avatar.svg`
-- 背景示意图：`public/images/blog-banner.svg`
+- 头像：`src/assets/images/profile/spring-traveler.png`
+- 背景壁纸：`src/assets/images/banner/spring-railway.png`
+- 手机壁纸：`src/assets/images/banner/spring-railway-mobile.png`
+- 浏览器图标：`public/images/avatar.svg`
 
-首版采用系统字体，以免构建依赖外部字体下载。评论、音乐、统计和多余演示栏目均未启用。主题 MIT 许可证和来源说明保留。
+当前样式使用本地 Outfit 与悠哉圆体，生产构建自动压缩字体子集；字体无需从外部 CDN 获取。字体设置在 `src/config/fontConfig.ts`，Outfit 的 OFL 许可证随字体保存。原创壁纸与头像使用内置 image_gen 生成，提示词见 `docs/assets/reference-style-prompts.md`。
+
+评论、音乐、统计和多余演示栏目均未启用。主题 MIT 许可证和来源说明保留。
 
 上游的语法演示文章兼作主题文档，因此保留在源码中并标记为 `draft: true`，不会出现在已发布文章中。此次核对了类型、文档清单、Node 测试和生产构建，后续更新由 Vercel 自动构建。Fork 中继承的主题开发工作流未启用：其中 `tests/site` 的部分用例针对默认站名、特定字体和演示相册，若以后启用这些 GitHub Actions，需要先适配个人站点配置。
 

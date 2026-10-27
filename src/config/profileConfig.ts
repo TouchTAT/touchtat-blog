@@ -2,7 +2,7 @@ import type { ProfileConfig } from "@/types/config";
 import { withUserConfig } from "../utils/config-overlay.ts";
 
 export const profileConfig: ProfileConfig = withUserConfig("profile", {
-	avatar: "/images/avatar.svg",
+	avatar: "assets/images/profile/spring-traveler.png",
 	name: "TouchTAT",
 	bio: "个人简介待完善。这里先收集生活、照片和日常想法。",
 	links: [
