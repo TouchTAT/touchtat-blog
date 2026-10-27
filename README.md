@@ -1,3 +1,15 @@
+# TouchTAT 的博客
+
+个人非商业博客，基于 [Shirone](https://github.com/LyraVoid/Shirone) 与 Astro。
+
+- 站点地址：[touchtat-blog.vercel.app](https://touchtat-blog.vercel.app/)
+- 写文章、碎碎念、相册和友链：[更新说明](./BLOG-GUIDE.md)
+- 自动发布：提交到本仓库的 `main` 后，由个人 Vercel Hobby 项目构建。
+
+以下保留上游主题的说明、来源与许可信息。
+
+---
+
 <div align="center">
 
 <img src="./public/logo/icon.webp" width="88" height="88" alt="Shirone logo" />

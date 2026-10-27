@@ -2,6 +2,8 @@
 
 网站使用 Shirone + Astro。内容在本仓库，推送到默认分支后 Vercel 自动构建。
 
+站点地址：[touchtat-blog.vercel.app](https://touchtat-blog.vercel.app/)。源码：[TouchTAT/touchtat-blog](https://github.com/TouchTAT/touchtat-blog)。托管项目：[Vercel Hobby 控制台](https://vercel.com/touch17/touchtat-blog)。
+
 ## 本地预览与发布
 
 需要 Node >= 22.12。打开此目录中的终端：
