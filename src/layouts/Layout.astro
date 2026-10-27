@@ -262,6 +262,11 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 			--banner-stage-height: var(--banner-height-home);
 			--banner-content-top: calc(var(--banner-stage-height) - var(--banner-panel-overlap));
 		}
+		body[data-current-page="home"] {
+			--banner-stage-height: max(88vh, 34rem);
+			--banner-panel-overlap: 0rem;
+			--banner-content-top: calc(var(--banner-stage-height) - var(--banner-panel-overlap));
+		}
 		#main-layout {
 			top: 5.5rem;
 			transition: top var(--m3e-duration-long) var(--m3e-easing-standard);
