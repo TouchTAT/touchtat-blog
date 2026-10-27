@@ -117,12 +117,12 @@ draft: false
 - 昵称、头像、简介和社交链接：`src/config/profileConfig.ts`
 - 标题、网站正式地址、背景、主题色和时区：`src/config/siteConfig.ts`
 - 导航：`src/config/navBarConfig.ts`
-- 头像：`src/assets/images/profile/spring-traveler.png`
+- 头像：`src/assets/images/profile/botan.jpg`
 - 背景壁纸：`src/assets/images/banner/spring-railway.png`
 - 手机壁纸：`src/assets/images/banner/spring-railway-mobile.png`
 - 浏览器图标：`public/images/avatar.svg`
 
-当前样式使用本地 Outfit 与悠哉圆体，生产构建自动压缩字体子集；字体无需从外部 CDN 获取。字体设置在 `src/config/fontConfig.ts`，Outfit 的 OFL 许可证随字体保存。原创壁纸与头像使用内置 image_gen 生成，提示词见 `docs/assets/reference-style-prompts.md`。
+当前样式使用本地 Outfit 与悠哉圆体，生产构建自动压缩字体子集；字体无需从外部 CDN 获取。字体设置在 `src/config/fontConfig.ts`，Outfit 的 OFL 许可证随字体保存。原创壁纸使用内置 image_gen 生成；当前头像为你提供的图片。壁纸及早期头像的提示词见 `docs/assets/reference-style-prompts.md`。
 
 评论、音乐、统计和多余演示栏目均未启用。主题 MIT 许可证和来源说明保留。
 
