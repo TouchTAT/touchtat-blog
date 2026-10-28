@@ -185,7 +185,7 @@ content:
       - name: draft
         label: 草稿（关闭后公开）
         type: boolean
-        default: true
+        default: false
       - name: cover
         label: 封面
         type: image
