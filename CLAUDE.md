@@ -1,4 +1,4 @@
-# TouchTAT 博客工程说明
+# TouchThinking 博客工程说明
 
 ## 项目与部署
 
@@ -11,7 +11,7 @@
 - src/content/文章：Markdown 文章，旧 hello-world 与 welcome 链接保持不变。
 - src/content/动态：碎碎念；src/content/页面：关于、友链介绍。
 - src/content/相册：JSON 相册元数据。photos 包含 src、thumbnail（可选）、alt、caption。
-- public/images/albums：本地图片，包括南京摄影集和样例。
+- public/images/albums：本地图片，目前为南京摄影集。
 - src/content/更新日志：面向读者的版本记录。
 - src/config、src/components、src/styles/main.css：配置、按功能域分组的组件、样式入口。
 - /album/ 是相册入口；/albums/ 和 /albums/[id]/ 保留兼容跳转。

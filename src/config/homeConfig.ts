@@ -47,14 +47,14 @@ export const homeConfig = {
 		dialogue: {
 			enabled: true,
 			speakers: {
-				host: "TouchTAT",
+				host: "TouchThinking",
 				visitor: "访客",
 			},
 			menuTitle: "想聊点什么？",
 			typingSpeed: 45,
 			autoDelay: 1600,
 			intro: [
-				{ speaker: "host", text: "欢迎来到 TouchTAT 的博客。" },
+				{ speaker: "host", text: "欢迎来到 TouchThinking 的博客。" },
 				{
 					speaker: "host",
 					text: `这里是 ${profileConfig.name} 的个人空间，技术、生活和喜欢的东西都会慢慢收进来。`,

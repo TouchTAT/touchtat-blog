@@ -8,7 +8,7 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "TouchTAT 的博客",
+	title: "TouchThinking 的博客",
 
 	// 站点副标题
 	subtitle: "",
@@ -21,7 +21,7 @@ export const siteConfig: SiteConfig = {
 		"记录生活、照片与日常思考。",
 
 	// 站点关键词
-	keywords: ["TouchTAT", "摄影", "生活", "思考"],
+	keywords: ["TouchThinking", "摄影", "生活", "思考"],
 
 	// 主题色
 	themeColor: {
@@ -70,7 +70,7 @@ export const siteConfig: SiteConfig = {
 			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "TouchTAT",
+		title: "TouchThinking",
 		// 悬停时显示的互动颜文字
 		hoverTitle: "w(ﾟДﾟ)w 不要走！再看看嘛！",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
@@ -86,7 +86,7 @@ export const siteConfig: SiteConfig = {
 	portal: {
 		announcement: {
 			enable: true,
-			text: "欢迎来到 TouchTAT 的博客，记录生活，也留下一点思考。",
+			text: "欢迎来到 TouchThinking 的博客，记录生活，也留下一点思考。",
 		},
 		dailyQuote: {
 			enable: true,
