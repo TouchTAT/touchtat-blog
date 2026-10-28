@@ -62,9 +62,9 @@ const tombstonesDir = path.join(
 	"友链",
 	"墓碑",
 );
-const hasTombstones = fs
-	.readdirSync(tombstonesDir)
-	.some((f) => f.endsWith(".md"));
+const hasTombstones =
+	fs.existsSync(tombstonesDir) &&
+	fs.readdirSync(tombstonesDir).some((f) => f.endsWith(".md"));
 const tombstoneEntries = hasTombstones ? await getCollection("tombstones") : [];
 
 // 站点截图：public/assets/friends-shots/{contentId}.webp。

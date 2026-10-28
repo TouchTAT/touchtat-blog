@@ -8,5 +8,6 @@
 - 兼容链接：/albums/nanjing/ 跳至 /album/?album=nanjing，筛选出 56 张。
 - 产物扫描：未命中原作者账号、备案、个人联系方式；没有把 .env、.vercel、密钥或 node_modules 加入提交。
 - 旧 Shirone CI 工作流依赖已删除的组件和测试，随主题移除；新版本由 Vercel 的 Git 集成执行实际构建。
+- 首次云端构建发现空墓碑目录不会随 Git 上传；修复 friends.astro 的存在性检查，并以目录缺失的情形重新构建。
 
 详尽本地日志位于 D:/Blog/docs/release-*.log；生产部署状态以 Vercel 实际部署为准。

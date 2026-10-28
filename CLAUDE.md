@@ -18,6 +18,8 @@
 
 本项目内容目录不是独立 Git 仓库。不要照搬上游私人备份、EdgeOne、Obsidian 或自托管 CMS 的部署说明。
 
+Git 不保存空目录；友链墓碑等可选内容目录必须先 existsSync 判断，再扫描，确保干净克隆能够构建。
+
 ## 开发约定
 
 只用 Node 脚本修改文件。组件遵守现有 Svelte 5 runes、主题令牌与 Swup 生命周期；监听器应清理，跨页单例使用 guard。全局样式通过 main.css 导入。新增界面翻译同步 i18nKey.ts 和 languages/zh_CN.ts。不要启用未经配置的评论、统计、赞助或外部服务；任何管理令牌不得写入 PUBLIC_ 环境变量或网页。
