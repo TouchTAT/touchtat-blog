@@ -1,33 +1,75 @@
-import type Swup from "swup";
-import "@swup/scroll-plugin";
-
 declare global {
-	interface OddmiscStatsResult {
-		pageviews: number;
-		visitors: number;
-		visits: number;
-		_fromCache?: boolean;
-	}
-
-	interface OddmiscBrowserClient {
-		getSiteStats: () => Promise<OddmiscStatsResult>;
-		getPageStats: (path: string) => Promise<OddmiscStatsResult>;
-		clearCache: () => void;
+	interface HTMLElementTagNameMap {
+		"table-of-contents": HTMLElement & {
+			init?: () => void;
+		};
 	}
 
 	interface Window {
-		swup?: Swup;
-		oddmisc?: OddmiscBrowserClient;
-		__shironeUmamiStatsPromises?: Record<string, Promise<OddmiscStatsResult>>;
-		__shironeNavigationBound?: boolean;
-		__shironeSidebarBound?: boolean;
-		pagefind?: {
+		// biome-ignore lint/suspicious/noExplicitAny: External library
+		swup: any;
+		live2dModelInitialized?: boolean;
+		spineModelInitialized?: boolean;
+		floatingTOCListenersInitialized?: boolean;
+		__navMenuListenersReady?: boolean;
+		// biome-ignore lint/suspicious/noExplicitAny: External library
+		spinePlayerInstance?: any;
+		pagefind: {
 			search: (query: string) => Promise<{
 				results: Array<{
 					data: () => Promise<SearchResult>;
 				}>;
 			}>;
 		};
+		__fireflyMusic?: {
+			init: () => Promise<void>;
+			getState: () => {
+				playlist: Array<{
+					name: string;
+					artist: string;
+					url: string;
+					pic: string;
+					lrc?: string;
+				}>;
+				currentIndex: number;
+				track: {
+					name: string;
+					artist: string;
+					url: string;
+					pic: string;
+					lrc?: string;
+				} | null;
+				isPlaying: boolean;
+				playMode: number;
+				volume: number;
+				isMuted: boolean;
+				currentTime: number;
+				duration: number;
+				progress: number;
+				currentTimeStr: string;
+				durationStr: string;
+				lyrics: Array<{ time: number; text: string }>;
+				currentLrcIndex: number;
+				initialized: boolean;
+				error: string | null;
+				config: Record<string, unknown>;
+			};
+			togglePlay: () => void;
+			playNext: () => void;
+			playPrev: () => void;
+			cyclePlayMode: () => void;
+			setVolume: (val: number) => void;
+			toggleMute: () => void;
+			seek: (percent: number) => void;
+			seekToTime: (time: number) => void;
+			playTrackByIndex: (index: number) => void;
+			loadTrack: (index: number, autoPlay: boolean) => void;
+		};
+	}
+
+	interface MediaQueryList {
+		addListener(listener: (e: MediaQueryListEvent) => void): void;
+		removeListener(listener: (e: MediaQueryListEvent) => void): void;
 	}
 }
 
@@ -56,3 +98,5 @@ interface SearchResult {
 	raw_url?: string;
 	sub_results?: SearchResult[];
 }
+
+export type { SearchResult };

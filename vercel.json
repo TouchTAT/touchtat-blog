@@ -1,1 +1,7 @@
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "installCommand": "npx --yes --registry=https://registry.npmjs.org pnpm@9.14.4 install --frozen-lockfile",
+  "buildCommand": "npx --yes --registry=https://registry.npmjs.org pnpm@9.14.4 build",
+  "outputDirectory": "dist"
+}

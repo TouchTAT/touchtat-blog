@@ -1,198 +1,262 @@
 import type { SiteConfig } from "@/types/config";
-import type {
-	ResolvedTextureOptions,
-	TextureConfig,
-} from "@/types/textureConfig";
-import { withUserConfig } from "../utils/config-overlay.ts";
+import { fontConfig } from "./fontConfig";
 
-/**
- * 站点核心配置：标题 / 语言 / 主题色（HCT 动态配色）/ 横幅 / 目录 / 进度条 / favicon。
- * 类型见 src/types/config.ts。
- */
-export const siteConfig: SiteConfig = withUserConfig("site", {
-	site: "https://touchtat-blog.vercel.app/",
-	base: "/",
+// 定义站点语言
+// 2026-10-20 起只支持 'zh_CN'：i18n 只保留简体中文一份翻译表（见 src/i18n/translation.ts），
+// 类型也已经收窄成 "zh_CN"，填别的值会在 astro check 阶段报错。
+const SITE_LANG = "zh_CN";
+
+export const siteConfig: SiteConfig = {
+	// 站点标题
 	title: "TouchTAT 的博客",
-	subtitle: "记录生活，也留下一点思考",
-	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
-	topAppBar: {
-		contentAlign: "center",
-	},
-	// 显示设置面板控制：配置各项前端切换项的可见性（默认全部开启）。
-	displaySettings: {
-		colorStyle: true, // 是否展示配色风格 9 宫格
-		colorSpec: true, // 是否展示 Color Spec 调色规范切换
-		wallpaperMode: true, // 是否展示页面背景（纯色/横幅）切换
-		layoutMode: true, // 是否展示文章列表布局（列表/网格）切换
-		reduceMotion: true, // 是否展示减少动效切换
-		texture: true, // 是否展示背景纹理选择
-	},
-	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
-	// IANA time zone for precise post and moment timestamps. It is independent of lang.
-	timeZone: "Asia/Hong_Kong",
+
+	// 站点副标题
+	subtitle: "",
+
+	// 站点 URL
+	site_url: "https://touchtat-blog.vercel.app",
+
+	// 站点描述
+	description:
+		"记录生活、照片与日常思考。",
+
+	// 站点关键词
+	keywords: ["TouchTAT", "摄影", "生活", "思考"],
+
+	// 主题色
 	themeColor: {
-		hue: 315, // Default hue 0-360. 站点设计默认粉紫（偏二次元）；262 紫 / 345 粉 也可选
-		fixed: false, // Hide the theme color picker for visitors
-		// Dynamic Material 3 palette style (TonalSpot/Vibrant/Content/Expressive/Rainbow/FruitSalad/Monochrome/Neutral/Fidelity)
-		style: "tonalSpot",
-		// Design spec version: "2021" (MD3) or "2025" (M3 Expressive)。角色集一致，
-		// 差异仅在调色板派生（库的 colorSpec 静态为 2025 委托）
-		spec: "2025",
+		// 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		// hue = 230 对应偏紫的蓝色调
+		hue: 230,
+		// 是否对访问者隐藏主题色选择器
+		fixed: false,
+		// 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
+		defaultMode: "system",
 	},
-	// 默认页面背景模式："banner" 使用壁纸横幅，"none" 使用主题纯色。
-	// 访客在“显示设置”中的选择会保存在浏览器中，并覆盖这里的默认值。
-	wallpaperMode: {
-		defaultMode: "banner",
+
+	// 页面整体宽度（单位：rem）
+	// 数值越大可以让页面内容区域更宽
+	pageWidth: 100,
+
+	// 网站Card样式配置
+	card: {
+		// 是否开启卡片边框和阴影，开启后让网站更有立体感
+		border: true,
 	},
-	// 页面背景纹理系统配置（5 大精美预设 + 零开销 HCT 动态取色）
-	texture: {
-		enable: true, // 是否启用背景纹理系统
-		defaultPreset: "starlight", // 默认纹理预设："none" | "starlight" | "cyber-dots" | "topography" | "geometric" | "sakura"
-		defaultOpacity: 0.12, // 默认纹理浓度 (0.05 ~ 0.25)
-		allowMotion: true, // 是否允许背景微动效（开启 reduced-motion 时自动静止）
-	},
-	banner: {
-		// 推荐将图片放入 src/assets，并填写相对 src 的路径，以启用构建期 AVIF/WebP 响应式优化。
-		// 以 "/" 开头的 public 路径与远程 URL 仍可用，但会保留原图、不生成候选。
-		// desktop 用于 >= 1024px；mobile 仅用于 < 1024px 的首页，手机非首页不显示壁纸。
-		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
-		src: {
-			desktop: ["assets/images/banner/spring-railway.png"],
-			mobile: ["assets/images/banner/spring-railway-mobile.png"],
-		},
-		// 图片裁切焦点："top"、"center" 或 "bottom"。
-		position: "center",
-		dim: {
-			// 在图片上覆盖黑色遮罩以提高标题和顶部栏的对比度；opacity 范围为 0-1。
-			enable: true,
-			opacity: 0.32,
-		},
-		homeText: {
-			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
-			enable: true,
-			title: "TouchTAT 的博客",
-			subtitle: ["记录生活，也留下一点思考"],
-			typewriter: {
-				// 副标题逐字显示；关闭后直接显示完整副标题。
-				enable: true,
-				// 打字速度（每个字符间隔，毫秒）。
-				speed: 100,
-				// 回退反向删除速度（每个字符间隔，毫秒）。
-				deleteSpeed: 50,
-				// 打字完成后停顿时间，单位为毫秒。
-				pauseTime: 2000,
-				// 完成后是否循环播放；关闭表示只播放一次。
-				loop: true,
-			},
-		},
-		carousel: {
-			// 是否开启多张图片自动轮播；多张图片时生效，单张图片时自动降级为静态展示。
-			enable: true,
-			// 轮播切换间隔时间（毫秒），运行时最小值限制为 3000ms。
-			interval: 6000,
-			// 交叉淡入淡出（Crossfade）过渡时长（毫秒，默认 1200ms）。
-			fadeDuration: 1200,
-			// 运镜呼吸动画模式："ken-burns"（默认，循环运镜）| "zoom-in"（推进）| "zoom-out"（拉远）| "pan-left"（左移）| "pan-right"（右移）| "none"（无运镜）。
-			animation: "ken-burns",
-		},
-		waves: {
-			// 在 Banner 底部渲染页面背景色水波纹；关闭后不输出波浪 DOM。
-			enable: true,
-		},
-	},
-	// Markdown 正文图片处理；仅匹配远程图片，不会产生额外网络请求或客户端代码。
-	imageOptimization: {
-		// 为需要防盗链兼容的图片 CDN 添加 referrerpolicy="no-referrer"，支持通配符。
-		noReferrerDomains: ["*.hdslb.com"],
-	},
-	toc: {
-		enable: true, // Display the table of contents on the right side of the post
-		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
-	},
-	progressIndicator: {
-		// 进度条预设样式：dual 双向扫描（官方默认双线）/ single 单向扫描（单线）
-		style: "dual",
-	},
+
+	// Favicon 配置
 	favicon: [
-		// 浏览器标签页图标，路径相对于 public 目录。
-		{ src: "/images/avatar.svg" },
+		{
+			// 图标文件路径
+			src: "/assets/touchtat/avatar.jpg",
+			// 可选，指定主题 'light' | 'dark'
+			// theme: "light",
+			// 可选，图标大小
+			// sizes: "32x32",
+		},
 	],
-});
 
-/**
- * 解析并返回背景纹理配置选项（包含关闭短路与 0 开销优化判定）
- */
-export function resolveTextureOptions(
-	config: boolean | TextureConfig | undefined = siteConfig.texture,
-	displaySettingsTexture: boolean = siteConfig.displaySettings?.texture ?? true,
-): ResolvedTextureOptions {
-	if (config === false || config === undefined) {
-		return {
-			enable: false,
-			defaultPreset: "none",
-			defaultOpacity: 0.12,
-			allowMotion: false,
-		};
-	}
+	// 导航栏配置
+	navbar: {
+		// 导航栏Logo
+		// 支持三种类型：
+		// 1. Astro图标库: { type: "icon", value: "material-symbols:home-pin-outline" }
+		// 2. 本地图片（public目录，不优化）: { type: "image", value: "/assets/images/logo.webp", alt: "Logo" }
+		// 3. 本地图片（src目录，自动优化但会增加构建时间，推荐）: { type: "image", value: "assets/images/logo.webp", alt: "Logo" }
+		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
+		logo: {
+			type: "image",
+			value: "assets/images/firefly.png",
+			alt: "🍀",
+		},
+		// 导航栏标题
+		title: "TouchTAT",
+		// 悬停时显示的互动颜文字
+		hoverTitle: "w(ﾟДﾟ)w 不要走！再看看嘛！",
+		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
+		widthFull: false,
+		// 导航栏图标和标题是否跟随主题色
+		followTheme: false,
+	},
 
-	if (config === true) {
-		return {
+	// 站点开始日期，用于统计运行天数
+	siteStartDate: "2026-10-27",
+
+	// 门户区配置
+	portal: {
+		announcement: {
 			enable: true,
-			defaultPreset: "starlight",
-			defaultOpacity: 0.12,
-			allowMotion: true,
-		};
-	}
+			text: "欢迎来到 TouchTAT 的博客，记录生活，也留下一点思考。",
+		},
+		dailyQuote: {
+			enable: true,
+			quotes: [
+				{ text: "人生到处知何似，应似飞鸿踏雪泥。", source: "苏轼" },
+				{
+					text: "世界上只有一种真正的英雄主义，那就是在认识生活的真相后依然热爱生活。",
+					source: "罗曼·罗兰",
+				},
+				{
+					text: "愿你一生努力，一生被爱。想要的都拥有，得不到的都释怀。",
+					source: "八月长安",
+				},
+				{ text: "凡是过去，皆为序章。", source: "莎士比亚" },
+				{ text: "温柔半两，从容一生。", source: "三毛" },
+			],
+		},
+		recentPostsCount: 3,
+		recentMomentsCount: 3,
+	},
 
-	const enable = config.enable ?? true;
-	const defaultPreset = config.defaultPreset ?? "starlight";
-	const defaultOpacity = config.defaultOpacity ?? 0.12;
-	const allowMotion = config.allowMotion ?? true;
+	// 上下班时间配置（24小时制），用于首页头像涟漪动效和状态按钮
+	workHours: {
+		start: 9, // 上班时间 9:00
+		end: 18, // 下班时间 18:00
+		// 工作日范围，0=周日 1=周一 ... 6=周六，默认周一到周五
+		workDays: [1, 2, 3, 4, 5],
+	},
 
-	// 性能短路优化：
-	// 如果配置 enable: false，或者 defaultPreset: "none" 且显示设置面板未允许切换（访客也无法开启），
-	// 则自动视为完全关闭以达成零 DOM、零 CSS、零运行时代价。
-	const effectiveEnable =
-		enable && (defaultPreset !== "none" || displaySettingsTexture);
+	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
+	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
+	timezone: "Asia/Hong_Kong",
 
-	return {
-		enable: effectiveEnable,
-		defaultPreset,
-		defaultOpacity,
-		allowMotion,
-	};
-}
+	// 提醒框（Admonitions）配置，修改后需要重启开发服务器才能生效
+	// 主题：'github' | 'obsidian' | 'vitepress'，每个主题风格和语法不同，可根据喜好选择
+	rehypeCallouts: {
+		theme: "github",
+	},
 
-/** 站点默认配色风格（访客未做选择时的回退值） */
-export function getDefaultStyle(): string {
-	return siteConfig.themeColor.style;
-}
+	// 文章页底部的"上次编辑时间"卡片开关
+	showLastModified: true,
 
-/** 站点默认 Color Spec（2021 / 2025） */
-export function getDefaultSpec(): string {
-	return siteConfig.themeColor.spec;
-}
+	// 文章过期阈值（天数），超过此天数才显示"上次编辑"卡片
+	outdatedThreshold: 30,
 
-/** 解析并返回显示设置面板各项开关（未配置时默认 true） */
-export function resolveDisplaySettings(): {
-	colorStyle: boolean;
-	colorSpec: boolean;
-	wallpaperMode: boolean;
-	layoutMode: boolean;
-	reduceMotion: boolean;
-	texture: boolean;
-} {
-	const cfg = siteConfig.displaySettings;
-	const textureOpts = resolveTextureOptions(
-		siteConfig.texture,
-		cfg?.texture ?? true,
-	);
-	return {
-		colorStyle: cfg?.colorStyle ?? true,
-		colorSpec: cfg?.colorSpec ?? true,
-		wallpaperMode: cfg?.wallpaperMode ?? true,
-		layoutMode: cfg?.layoutMode ?? true,
-		reduceMotion: cfg?.reduceMotion ?? true,
-		texture: textureOpts.enable && (cfg?.texture ?? true),
-	};
-}
+	// 是否开启分享海报生成功能
+	sharePoster: true,
+
+	// OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
+	generateOgImages: false,
+
+	// bangumi配置
+	bangumi: {
+		// Bangumi用户ID
+		userId: "",
+	},
+
+	// 豆瓣配置
+	douban: {
+		// 豆瓣用户ID，用于影视与游戏页面的跳转
+		userId: "",
+	},
+
+	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404
+	pages: {
+		// 赞助页面开关
+		sponsor: false,
+		// 留言板页面开关，需要配置评论系统
+		guestbook: false,
+		// 原番组计划页面开关（已拆分，保留关闭）
+		bangumi: false,
+		// 书架页面开关
+		books: false,
+		// 影视与游戏页面开关
+		moviesGames: false,
+		// 音乐页面开关
+		musicPage: false,
+		// 更新日志页面开关
+		changelog: false,
+		// 分类图谱页面开关（/categories/ 的四层知识图谱）
+		categories: true,
+	},
+
+	// 说说页面封面配置（微信朋友圈风格）
+	momentsCover: {
+		enable: true,
+		image: "/assets/images/moments-cover.jpg",
+	},
+
+	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
+	categoryBar: true,
+
+	// 归档页统计配置
+	archiveStats: {
+		// 年度文章目标，用于计算归档页的年度完成率
+		// （本站 2026 年约 325 篇，取 400 作目标；数字只影响「年进度」这一格与节奏评语）
+		annualPostGoal: 400,
+	},
+
+	// 文章列表布局配置
+	postListLayout: {
+		// 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（多列布局）
+		defaultMode: "list",
+		// 是否允许用户切换布局
+		allowSwitch: true,
+		// 网格布局配置，仅在 defaultMode 为 "grid" 或允许切换布局时生效
+		grid: {
+			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
+			masonry: false,
+			// 网格模式列数：2 或 3
+			// 2列是默认模式，在任何侧边栏配置下均可生效
+			// 3列模式仅在单侧边栏（或无侧边栏）时生效
+			columns: 3,
+		},
+	},
+
+	// 分页配置
+	pagination: {
+		// 每页显示的文章数量
+		postsPerPage: 10,
+	},
+
+	// 统计分析
+	analytics: {
+		// Google Analytics ID
+		googleAnalyticsId: "",
+		// Microsoft Clarity ID
+		microsoftClarityId: "",
+		// Umami Analytics
+		umamiAnalytics: {
+			websiteId: import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || "",
+			scriptUrl: import.meta.env.PUBLIC_UMAMI_BASE
+				? `${import.meta.env.PUBLIC_UMAMI_BASE}/script.js`
+				: "",
+			shareId: import.meta.env.PUBLIC_UMAMI_SHARE_ID || "",
+		},
+	},
+
+	// 图像优化及响应式配置
+	// 图像优化压缩只保留avif或webp
+	// 响应式图像是为在不同设备上提高性能而调整的图像。这些图像可以调整大小以适应其容器，并且可以根据访问者的屏幕尺寸和分辨率以不同的大小提供。
+	// Astro 仅能对 src 目录下的图像进行优化，src 目录下的图像越多，构建时间会越长
+	// Astro 图像文档 https://docs.astro.build/zh-cn/guides/images/
+	imageOptimization: {
+		// 输出图片格式
+		// - "avif": 仅输出 AVIF 格式（最新技术，最小体积，目前兼容性较低）
+		// - "webp": 仅输出 WebP 格式（体积适中，兼容性好）
+		// - "both": 同时输出 AVIF 和 WebP（推荐，浏览器自动选择最佳格式）
+		formats: "webp",
+		// 图片压缩质量 (1-100)，值越低体积越小但质量越差，推荐 70-85
+		quality: 85,
+	},
+
+	// 地图配置
+	mapConfig: {
+		// 高德地图 Web端 JS API Key
+		// 申请地址: https://console.amap.com/dev/key/app
+		amapKey: import.meta.env.PUBLIC_AMAP_KEY || "",
+		// 地图初始中心点 [经度, 纬度]
+		center: [104.195, 35.861],
+		// 初始缩放级别
+		zoom: 4,
+		// 是否显示地图标记点
+		showMarkers: true,
+	},
+
+	// 字体配置
+	// 在src/config/fontConfig.ts中配置具体字体
+	font: fontConfig,
+
+	// 站点语言，在本配置文件顶部SITE_LANG定义
+	lang: SITE_LANG,
+};

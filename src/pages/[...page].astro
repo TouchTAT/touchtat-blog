@@ -1,23 +1,26 @@
 ---
-import Pagination from "@components/molecules/Pagination.astro";
-import PostPage from "@components/organisms/PostPage.astro";
+import HomeDataLayer from "@components/layout/HomeDataLayer.astro";
+import HomeHero from "@components/layout/HomeHero.astro";
+import HomeTicker from "@components/layout/HomeTicker.astro";
 import type { GetStaticPaths } from "astro";
-import { postListConfig } from "@/config/postListConfig";
-import MainGridLayout from "../layouts/MainGridLayout.astro";
-import { getSortedPosts } from "../utils/content-utils";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@/utils/content-utils";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allBlogPosts = await getSortedPosts();
-	return paginate(allBlogPosts, { pageSize: postListConfig.pageSize });
+	return paginate(allBlogPosts, { pageSize: allBlogPosts.length });
 }) satisfies GetStaticPaths;
-// https://github.com/withastro/astro/issues/6507#issuecomment-1489916992
 
 const { page } = Astro.props;
-
-const len = page.data.length;
 ---
 
-<MainGridLayout page="home">
-    <PostPage page={page}></PostPage>
-    <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
+<MainGridLayout>
+	<div class="home-page home-page--motion-pending">
+		{/* 首页 = 首屏 Hero + 公告跑马灯 + 地图指南数据层。
+		    全屏滚动展示层（HomeDisplayLayer：柱子展开 + 百叶窗 + 结尾大图/视频）
+		    已于 2026-10-20 按站长要求删除。页脚由 MainGridLayout 提供，未动。 */}
+		<HomeHero />
+		<HomeTicker />
+		<HomeDataLayer />
+	</div>
 </MainGridLayout>

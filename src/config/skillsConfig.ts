@@ -1,36 +1,35 @@
-import type { SkillsConfig } from "@/types/skillsConfig";
-import { withUserConfig } from "../utils/config-overlay.ts";
-
-/**
- * 技能页行为与展示配置。
- *
- * 遵循「配置管行为，数据管内容」原则：
- * - enable：页面总开关；false 时导航入口同步隐藏，访问 /skills/ 跳转 404；
- * - categories：筛选分类清单（数组顺序即页面顶部 Chips 顺序）；
- * - disabledNames：可选被禁用的技能名称列表（例如 ["PHP"]）；
- *
- * 注：技能的具体内容数据（技能名称、熟练度等级、图标、描述等）请在 `src/data/skills.ts` 中维护。
- */
-export const skillsConfig: SkillsConfig = withUserConfig("skills", {
-	enable: false,
-	title: "$t:skills",
-	description: "$t:skillsBanner",
-	categories: [
-		{
-			key: "frontend",
-			label: "Frontend",
-			icon: "material-symbols:web-rounded",
-		},
-		{
-			key: "backend",
-			label: "Backend",
-			icon: "material-symbols:dns-rounded",
-		},
-		{
-			key: "tooling",
-			label: "Tooling",
-			icon: "material-symbols:construction-rounded",
-		},
+export const skillsConfig = {
+	items: [
+		{ name: "Astro", icon: "simple-icons:astro", group: "Frontend" },
+		{ name: "Svelte", icon: "simple-icons:svelte", group: "Frontend" },
+		{ name: "TypeScript", icon: "simple-icons:typescript", group: "Language" },
+		{ name: "React", icon: "simple-icons:react", group: "Frontend" },
+		{ name: "Tailwind", icon: "simple-icons:tailwindcss", group: "Style" },
+		{ name: "Java", icon: "mdi:language-java", group: "Backend" },
+		{ name: "Python", icon: "simple-icons:python", group: "Language" },
+		{ name: "Spring", icon: "simple-icons:spring", group: "Backend" },
+		{ name: "Redis", icon: "simple-icons:redis", group: "Storage" },
+		{ name: "MySQL", icon: "simple-icons:mysql", group: "Storage" },
+		{ name: "MongoDB", icon: "simple-icons:mongodb", group: "Storage" },
+		{ name: "RabbitMQ", icon: "simple-icons:rabbitmq", group: "Backend" },
+		{ name: "Docker", icon: "simple-icons:docker", group: "DevOps" },
+		{ name: "Linux", icon: "simple-icons:linux", group: "DevOps" },
+		{ name: "Nginx", icon: "simple-icons:nginx", group: "DevOps" },
 	],
-	// disabledNames: [],
-});
+	skills: [
+		["TypeScript", "React", "Tailwind"],
+		["Java", "Python"],
+		["Redis", "MySQL", "MongoDB", "Spring"],
+		["Git", "Docker", "Linux", "Nginx"],
+	],
+	colors: [
+		"#fbbf24", // amber
+		"#4ade80", // green
+		"#a78bfa", // purple
+		"#fb923c", // orange
+		"#22d3ee", // cyan
+		"#f472b6", // pink
+		"#a3e635", // lime
+		"#60a5fa", // blue
+	],
+};

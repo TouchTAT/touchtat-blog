@@ -1,21 +1,24 @@
-import type { AnnouncementConfig } from "@/types/announcementConfig";
-import { withUserConfig } from "../utils/config-overlay.ts";
+import type { AnnouncementConfig } from "../types/config";
 
-/**
- * 公告栏配置
- * 组件显示由 sidebarConfig 统一控制
- */
-export const announcementConfig: AnnouncementConfig = withUserConfig(
-	"announcement",
-	{
-		title: "", // 公告标题，填空使用 i18n 字符串 Key.announcement
-		content: "", // 公告内容
-		closable: true, // 允许用户关闭公告
-		link: {
-			enable: false, // 启用链接
-			text: "GitHub", // 链接文本
-			url: "https://github.com", // 链接 URL
-			external: true, // 外部链接
-		},
+export const announcementConfig: AnnouncementConfig = {
+	// 公告标题
+	title: "公告",
+
+	// 公告内容
+	content: "如果你喜欢，那么欢迎来到我的世界！",
+
+	// 是否允许用户关闭公告
+	closable: true,
+
+	link: {
+		// 启用链接
+
+		enable: true,
+		// 链接文本
+		text: "了解更多",
+		// 链接 URL
+		url: "/about/",
+		// 内部链接
+		external: false,
 	},
-);
+};

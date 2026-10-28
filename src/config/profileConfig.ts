@@ -1,15 +1,11 @@
-import type { ProfileConfig } from "@/types/config";
-import { withUserConfig } from "../utils/config-overlay.ts";
+import type { ProfileConfig } from "../types/config";
 
-export const profileConfig: ProfileConfig = withUserConfig("profile", {
-	avatar: "assets/images/profile/botan.jpg",
+export const profileConfig: ProfileConfig = {
+	avatar: "/assets/touchtat/avatar.jpg",
+	avatarOffWork: "",
 	name: "TouchTAT",
-	bio: "个人简介待完善。这里先收集生活、照片和日常想法。",
-	links: [
-		{
-			name: "GitHub",
-			icon: "fa7-brands:github",
-			url: "https://github.com/TouchTAT",
-		},
-	],
-});
+	displayName: "TouchTAT",
+	occupation: "[摄影 / 思考 / 生活]",
+	bio: ["记录生活，也留下一点思考。"],
+	links: [{ name: "GitHub", icon: "simple-icons:github", url: "https://github.com/TouchTAT", showName: false }],
+};

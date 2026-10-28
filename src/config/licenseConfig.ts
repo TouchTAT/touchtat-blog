@@ -1,11 +1,10 @@
-import type { LicenseConfig } from "@/types/config";
-import { withUserConfig } from "../utils/config-overlay.ts";
+import type { LicenseConfig } from "../types/config";
 
-/**
- * 文章版权声明（文章页 License 区块消费）。类型见 src/types/config.ts。
- */
-export const licenseConfig: LicenseConfig = withUserConfig("license", {
+export const licenseConfig: LicenseConfig = {
+	// 是否启用文章顶部许可证信息显示
 	enable: true,
+
+	// 许可证名称及链接
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-});
+};

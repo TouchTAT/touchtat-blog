@@ -1,117 +1,48 @@
 ---
-/**
- * 分类索引页：全部分类的总览入口。
- * 纯 SSR 直出（无客户端岛）：规格表行 = MetaIcon tonal 徽标 + 分类名 +
- * 点线引导 + 计数（与 SiteStats/PostMeta 同一视觉语言），
- * 行点击进入归档页的对应分类过滤（/archive/?category=x）。
- */
-import Card from "@components/atoms/display/Card.svelte";
-import MetaIcon from "@components/atoms/display/MetaIcon.astro";
-import PageHeader from "@components/atoms/display/PageHeader.astro";
+import KnowledgeGraph from "@components/widget/KnowledgeGraph.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getCategoryList } from "@utils/content-utils";
+import { siteConfig } from "@/config";
+import { getKnowledgeGraphData } from "@/utils/content-utils";
+import { getCategoryUrl, url } from "@/utils/url-utils";
 
-const categories = await getCategoryList();
-const totalPosts = categories.reduce(
-	(sum, category) => sum + category.count,
-	0,
-);
-const categorySummary = `${categories.length} ${i18n(I18nKey.categoriesCount)} · ${totalPosts} ${i18n(I18nKey.postsCount)}`;
+// 页面开关：关闭时重定向到 404（与 archive / music 等页面保持一致）
+if (!siteConfig.pages.categories) {
+	return Astro.redirect("/404/");
+}
+
+// 只取 meta（几百字节）内联；节点与边走 /api/knowledge-graph.json
+const { meta } = await getKnowledgeGraphData();
+
+const title = i18n(I18nKey.tagGraphPageTitle);
+const description = i18n(I18nKey.tagGraphPageDescription);
 ---
 
-<MainGridLayout title={i18n(I18nKey.categories)} description={categorySummary} page="categories">
-	<Card color="var(--card-bg)" radius="l" class="category-index px-8 py-6">
-		<PageHeader
-			icon="material-symbols:folder-outline-rounded"
-			title={i18n(I18nKey.categories)}
-				subtitle={categorySummary}
-		/>
-		{categories.length > 0 && (
-			<ul class="category-index__list">
-				{categories.map((category) => (
-					<li>
-						<a class="category-index__row m3-state-layer" href={category.url}>
-							<MetaIcon icon="material-symbols:folder-outline-rounded" />
-							<span class="category-index__name">{category.name}</span>
-							<span class="category-index__rule" aria-hidden="true"></span>
-							<span class="category-index__count">{category.count}</span>
-						</a>
-					</li>
-				))}
-			</ul>
-		)}
-		{categories.length === 0 && (
-			<div class="category-index__empty">
-				<span>{i18n(I18nKey.noData)}</span>
-			</div>
-		)}
-	</Card>
+<MainGridLayout title={title} description={description}>
+  <Fragment slot="head">
+    {/* 解析 HTML 时就并发拉图数据，抵消独立端点多出的那次往返 */}
+    <link rel="prefetch" href={url("/api/knowledge-graph.json")} as="fetch" crossorigin="anonymous" />
+  </Fragment>
+
+  {/* SEO / 读屏 / 无 JS 兜底：全站分类的精简内链清单。
+      画布与详情面板都是纯 JS，不执行 JS 的爬虫（百度/头条）只能靠这一节
+      拿到枢纽页内链；文章本体由 sitemap / 归档页 / 列表页覆盖，这里不重复。
+      视觉隐藏用 sr-only（clip 而非 display:none），链接仍可被提取。
+      顶部 H1 由 MainGridLayout 统一输出，这里不再重复一个。 */}
+  <nav class="sr-only" aria-label={title}>
+    <h2>{i18n(I18nKey.categories)}</h2>
+    <ul>
+      {meta.categories.map((category) => (
+        <li>
+          <a href={getCategoryUrl(category.name)}>{category.name}</a>（{category.postCount}）
+        </li>
+      ))}
+    </ul>
+    <p>{description}</p>
+  </nav>
+
+  <div class="graph-page">
+    <KnowledgeGraph meta={meta} />
+  </div>
 </MainGridLayout>
-
-<style lang="stylus">
-@import "../styles/breakpoints.styl"
-
-.category-index
-	display: block
-
-	&__list
-		display: grid
-		grid-template-columns: repeat(2, minmax(0, 1fr))
-		gap: var(--m3e-space-2) var(--m3e-space-4)
-		margin: 0
-		padding: 0
-		list-style: none
-
-	&__row
-		display: flex
-		align-items: center
-		gap: var(--m3e-space-3)
-		min-height: 3.5rem
-		padding: var(--m3e-space-3) var(--m3e-space-4)
-		border-radius: var(--shape-corner-m)
-		background: var(--surface-container-low)
-		text-decoration: none
-		--m3e-state-color: var(--on-surface)
-		transition: background-color var(--m3e-duration-short) var(--m3e-easing-standard)
-		&:hover
-			background: unquote("color-mix(in oklab, var(--on-surface) 6%, transparent)")
-
-	&__name
-		font: var(--m3e-type-body-large)
-		font-weight: 500
-		color: var(--on-surface)
-		white-space: nowrap
-		overflow: hidden
-		text-overflow: ellipsis
-
-	/* 点线引导：与 SiteStats 同语言，沉到文字基线附近 */
-	&__rule
-		flex: 1
-		align-self: flex-end
-		margin-bottom: 0.35em
-		min-width: 0.75rem
-		border-bottom: 2px dotted var(--outline-variant)
-
-	&__count
-		font: var(--m3e-type-title-small)
-		font-weight: 600
-		font-variant-numeric: tabular-nums
-		color: var(--on-surface-variant)
-		white-space: nowrap
-
-	&__empty
-		display: flex
-		align-items: center
-		justify-content: center
-		min-height: 11rem
-		color: var(--on-surface-variant)
-		font: var(--m3e-type-body-large)
-
-	@media (max-width: bp-sm - 1px)
-		padding: 1rem 0.75rem
-
-		&__list
-			grid-template-columns: 1fr
-</style>

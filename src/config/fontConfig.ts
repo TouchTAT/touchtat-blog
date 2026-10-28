@@ -1,69 +1,121 @@
-import type { FontConfig, ResolvedFontOptions } from "../types/fontConfig.ts";
-import { withUserConfig } from "../utils/config-overlay.ts";
-import { resolveFontOptions as resolve } from "../utils/font-options.ts";
+// 字体配置
+export const fontConfig = {
+	// 是否启用自定义字体功能
+	enable: true,
+	// 是否预加载字体文件
+	preload: true,
+	// 当前选择的字体，支持多个字体组合
+	selected: ["system"],
 
-/** All font files are self-hosted; production builds subset the local sources. */
-export const fontConfig: FontConfig = withUserConfig("font", {
-	mode: "custom",
-	fontFamilies: [
-		{
-			id: "outfit-body",
-			family: "Outfit",
-			role: "body",
-			source: "local",
-			variants: [
-				{
-					file: "src/assets/fonts/outfit-latin-400-normal.woff2",
-					weight: 400,
-					style: "normal",
-				},
-				{
-					file: "src/assets/fonts/outfit-latin-500-normal.woff2",
-					weight: 500,
-					style: "normal",
-				},
-				{
-					file: "src/assets/fonts/outfit-latin-700-normal.woff2",
-					weight: 700,
-					style: "normal",
-				},
-			],
-			fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
-			display: "swap",
-			preload: true,
-			licenseFile: "src/assets/fonts/OUTFIT-OFL.txt",
+	// 字体列表
+	// 推荐使用可靠的 CDN 服务商提供的字体链接，它天然做了按需分片加载，且性能较好
+	//
+	// 也可以使用本地字体文件，需自行进行字体子集化处理，否则会因为字体文件庞大增加带宽负担导致页面加载缓慢甚至无法加载
+	// 如果进行字体子集化处理，会导致动态内容（如评论，Bangumi等）无法正确显示字体，因此不推荐使用本地字体文件
+	fonts: {
+		// 系统字体
+		system: {
+			id: "system",
+			name: "系统字体",
+			src: "", // 系统字体无需 src
+			family:
+				"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
 		},
-		{
-			id: "yozai-cjk",
-			family: "Yozai Medium",
-			role: "cjk",
-			source: "local",
-			variants: [
-				{
-					file: "src/assets/fonts/Yozai-Medium.ttf",
-					weight: 500,
-					style: "normal",
-				},
-			],
-			fallback: ["system-ui", "sans-serif"],
-			display: "swap",
-			preload: true,
+
+		// Aa综艺圆
+		aazongyiyuan: {
+			id: "aazongyiyuan",
+			name: "Aa综艺圆",
+			src: "/fonts/AaZongYiYuan/AaZongYiYuan-2.woff2",
+			family: "AaZongYiYuan",
+			format: "woff2" as const,
+			display: "swap" as const,
 		},
+
+		// Google Fonts - Zen Maru Gothic
+		"zen-maru-gothic": {
+			id: "zen-maru-gothic",
+			name: "Zen Maru Gothic",
+			src: "https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap",
+			family: "Zen Maru Gothic",
+			display: "swap" as const,
+		},
+
+		// Google Fonts - Inter
+		inter: {
+			id: "inter",
+			name: "Inter",
+			src: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+			family: "Inter",
+			display: "swap" as const,
+		},
+
+		// 小米字体 - MiSans Normal
+		"misans-normal": {
+			id: "misans-normal",
+			name: "MiSans Normal",
+			src: "https://unpkg.com/misans@4.1.0/lib/Normal/MiSans-Normal.min.css",
+			family: "MiSans",
+			weight: 400,
+			display: "swap" as const,
+		},
+
+		// ===== 添加 Chiron GoRound TC VF 字体 =====
+		"chiron-goround": {
+			id: "chiron-goround",
+			name: "Chiron GoRound TC VF",
+			// ZeoSeven CDN 链接
+			src: "https://fontsapi.zeoseven.com/545/main/result.css",
+			family: "Chiron GoRound TC VF",
+			display: "swap" as const,
+		},
+
+		// ===== 添加 STDongGuanTi 字体 =====
+		stdongguanti: {
+			id: "stdongguanti",
+			name: "STDongGuanTi",
+			src: "https://fontsapi.zeoseven.com/488/main/result.css",
+			family: "STDongGuanTi",
+			display: "swap" as const,
+		},
+
+		// 小米字体 - MiSans Regular
+		"misans-regular": {
+			id: "misans-regular",
+			name: "MiSans Regular",
+			src: "https://unpkg.com/misans@4.1.0/lib/Normal/MiSans-Regular.min.css",
+			family: "MiSans",
+			weight: 500,
+			display: "swap" as const,
+		},
+
+		// 小米字体 - MiSans Semibold
+		"misans-semibold": {
+			id: "misans-semibold",
+			name: "MiSans Semibold",
+			src: "https://unpkg.com/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css",
+			family: "MiSans",
+			weight: 600,
+			display: "swap" as const,
+		},
+
+		// 霞鹜文楷 - LXGW WenKai（ZeoSeven CDN，WOFF2 按需加载）
+		"lxgw-wenkai": {
+			id: "lxgw-wenkai",
+			name: "霞鹜文楷",
+			src: "https://fontsapi.zeoseven.com/292/main/result.css",
+			family: "LXGW WenKai",
+			display: "swap" as const,
+		},
+	},
+
+	// 全局字体回退
+	fallback: [
+		"system-ui",
+		"-apple-system",
+		"BlinkMacSystemFont",
+		"Segoe UI",
+		"Roboto",
+		"sans-serif",
 	],
-	subsetting: {
-		enable: true,
-		includeContent: true,
-		includeI18n: true,
-		includeConfig: true,
-		includeCommon: true,
-		allowRemoteText: false,
-	},
-	budget: {
-		maxTotalBytes: 6 * 1024 * 1024,
-		maxFamilyBytes: 4 * 1024 * 1024,
-	},
-});
-
-export const resolvedFontOptions: ResolvedFontOptions = resolve(fontConfig);
-export const resolveFontOptions: (config: FontConfig) => ResolvedFontOptions =
-	resolve;
+};
