@@ -23,6 +23,8 @@ pnpm build
 - 头像与车站背景在 public/assets/touchtat，相关配置在 src/config。
 - 提交并推送到 main 后，Vercel 自动重新发布。浏览器直接访问正式网址即可，不需要访客登录。
 
-独立导航页面未启用。评论、统计、图床管理、CMS 等外部服务没有自动接入；请勿把管理员令牌填写到 PUBLIC_ 变量中。.pages.yml 只是内容编辑配置，不代表已经安装 Pages CMS。
+网页后台使用官方 Pages CMS，操作说明见 [后台使用说明](docs/pages-cms.md)。根 .pages.yml 定义文章、碎碎念、相册等表单。
+
+独立导航页面未启用。评论、统计、图床管理等外部服务没有自动接入；请勿把管理员令牌填写到 PUBLIC_ 变量中。
 
 迁移版本保留 /posts/hello-world/ 文章地址及 /albums/、/albums/nanjing/ 等旧相册地址的跳转。

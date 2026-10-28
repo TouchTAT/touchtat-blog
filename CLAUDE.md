@@ -29,3 +29,9 @@ Git 不保存空目录；友链墓碑等可选内容目录必须先 existsSync �
 发布前运行 pnpm check、pnpm type-check、pnpm build、pnpm exec biome ci ./src --reporter=github，记录实际结果，并用浏览器检查文章、相册灯箱、旧链接、移动端。上游已有格式问题须与本次错误区分，不做无关大规模改写。提交采用 type(scope): subject。修改内容模型或部署方式时同步本文件、README 与更新日志。
 
 Vercel 使用仓库 vercel.json 中固定版本的安装与构建命令，输出 dist。main 发布后核验 GitHub SHA、Vercel Ready 状态和匿名正式网址。
+
+## Pages CMS
+
+官方托管后台读取根 .pages.yml，入口 https://app.pagescms.org/TouchTAT/touchtat-blog/main 。配置管理文章、碎碎念、相册、友链和两个页面正文；uploads、albums、profile 为独立媒体库。settings.content.merge 必须保持 true，避免丢弃旧字段；相册照片必须保留 thumbnail。
+
+后台可能写出带引号的日期字符串，文章、动态、友链日期 schema 必须兼容字符串与 Date；updated、added 为空字符串时视为未填。文章和相册支持草稿，动态保存即发布。操作说明见 docs/pages-cms.md。

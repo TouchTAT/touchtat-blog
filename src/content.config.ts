@@ -15,8 +15,11 @@ const postsCollection = defineCollection({
 	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/文章" }),
 	schema: z.object({
 		title: z.string(),
-		published: z.date(),
-		updated: z.date().optional(),
+		published: z.coerce.date(),
+		updated: z.preprocess(
+			(value) => (value === "" ? undefined : value),
+			z.coerce.date().optional(),
+		),
 		draft: z.boolean().optional().default(false),
 		description: z.string().optional().default(""),
 		image: z.string().optional().default(""),
@@ -53,7 +56,7 @@ const momentsCollection = defineCollection({
 			author: z.string().optional().default("TouchTAT"),
 			avatar: z.string().optional().default("/assets/touchtat/avatar.jpg"),
 			pinned: z.boolean().optional().default(false),
-			published: z.date(),
+			published: z.coerce.date(),
 			images: z
 				.array(image().or(z.string()))
 				.or(z.string())
@@ -228,7 +231,10 @@ const friendsCollection = defineCollection({
 		tags: z.array(z.string()).optional().default([]),
 		weight: z.number().optional().default(0),
 		enabled: z.boolean().optional().default(true),
-		added: z.date().optional(),
+		added: z.preprocess(
+			(value) => (value === "" ? undefined : value),
+			z.coerce.date().optional(),
+		),
 		group: z.enum(["friend", "other"]).optional().default("other"),
 	}),
 });
