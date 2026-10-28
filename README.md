@@ -1,4 +1,4 @@
-# TouchTAT 的博客
+# TouchThinking 的博客
 
 正式网址：<https://touchtat-blog.vercel.app/>
 

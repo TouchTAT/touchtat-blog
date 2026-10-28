@@ -50,7 +50,7 @@ const momentsCollection = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			id: z.string().optional().default(""),
-			author: z.string().optional().default("TouchTAT"),
+			author: z.string().optional().default("TouchThinking"),
 			avatar: z.string().optional().default("/assets/touchtat/avatar.jpg"),
 			pinned: z.boolean().optional().default(false),
 			published: z.date(),
