@@ -1,0 +1,136 @@
+{
+  "title": "九江",
+  "subtitle": "庐山行记，山林、湖水与冬日光影。",
+  "date": "2026-02-02",
+  "location": "江西 · 九江",
+  "tags": [
+    "九江",
+    "庐山",
+    "旅行",
+    "摄影"
+  ],
+  "draft": true,
+  "cover": "/images/albums/jiujiang-05.webp",
+  "photos": [
+    {
+      "src": "/images/albums/jiujiang-01.webp",
+      "thumbnail": "/images/albums/jiujiang-01-thumb.webp",
+      "alt": "九江摄影作品 01",
+      "caption": "九江 · 01"
+    },
+    {
+      "src": "/images/albums/jiujiang-02.webp",
+      "thumbnail": "/images/albums/jiujiang-02-thumb.webp",
+      "alt": "九江摄影作品 02",
+      "caption": "九江 · 02"
+    },
+    {
+      "src": "/images/albums/jiujiang-03.webp",
+      "thumbnail": "/images/albums/jiujiang-03-thumb.webp",
+      "alt": "九江摄影作品 03",
+      "caption": "九江 · 03"
+    },
+    {
+      "src": "/images/albums/jiujiang-04.webp",
+      "thumbnail": "/images/albums/jiujiang-04-thumb.webp",
+      "alt": "九江摄影作品 04",
+      "caption": "九江 · 04"
+    },
+    {
+      "src": "/images/albums/jiujiang-05.webp",
+      "thumbnail": "/images/albums/jiujiang-05-thumb.webp",
+      "alt": "九江摄影作品 05",
+      "caption": "九江 · 05"
+    },
+    {
+      "src": "/images/albums/jiujiang-06.webp",
+      "thumbnail": "/images/albums/jiujiang-06-thumb.webp",
+      "alt": "九江摄影作品 06",
+      "caption": "九江 · 06"
+    },
+    {
+      "src": "/images/albums/jiujiang-07.webp",
+      "thumbnail": "/images/albums/jiujiang-07-thumb.webp",
+      "alt": "九江摄影作品 07",
+      "caption": "九江 · 07"
+    },
+    {
+      "src": "/images/albums/jiujiang-08.webp",
+      "thumbnail": "/images/albums/jiujiang-08-thumb.webp",
+      "alt": "九江摄影作品 08",
+      "caption": "九江 · 08"
+    },
+    {
+      "src": "/images/albums/jiujiang-09.webp",
+      "thumbnail": "/images/albums/jiujiang-09-thumb.webp",
+      "alt": "九江摄影作品 09",
+      "caption": "九江 · 09"
+    },
+    {
+      "src": "/images/albums/jiujiang-10.webp",
+      "thumbnail": "/images/albums/jiujiang-10-thumb.webp",
+      "alt": "九江摄影作品 10",
+      "caption": "九江 · 10"
+    },
+    {
+      "src": "/images/albums/jiujiang-11.webp",
+      "thumbnail": "/images/albums/jiujiang-11-thumb.webp",
+      "alt": "九江摄影作品 11",
+      "caption": "九江 · 11"
+    },
+    {
+      "src": "/images/albums/jiujiang-12.webp",
+      "thumbnail": "/images/albums/jiujiang-12-thumb.webp",
+      "alt": "九江摄影作品 12",
+      "caption": "九江 · 12"
+    },
+    {
+      "src": "/images/albums/jiujiang-13.webp",
+      "thumbnail": "/images/albums/jiujiang-13-thumb.webp",
+      "alt": "九江摄影作品 13",
+      "caption": "九江 · 13"
+    },
+    {
+      "src": "/images/albums/jiujiang-14.webp",
+      "thumbnail": "/images/albums/jiujiang-14-thumb.webp",
+      "alt": "九江摄影作品 14",
+      "caption": "九江 · 14"
+    },
+    {
+      "src": "/images/albums/jiujiang-15.webp",
+      "thumbnail": "/images/albums/jiujiang-15-thumb.webp",
+      "alt": "九江摄影作品 15",
+      "caption": "九江 · 15"
+    },
+    {
+      "src": "/images/albums/jiujiang-16.webp",
+      "thumbnail": "/images/albums/jiujiang-16-thumb.webp",
+      "alt": "九江摄影作品 16",
+      "caption": "九江 · 16"
+    },
+    {
+      "src": "/images/albums/jiujiang-17.webp",
+      "thumbnail": "/images/albums/jiujiang-17-thumb.webp",
+      "alt": "九江摄影作品 17",
+      "caption": "九江 · 17"
+    },
+    {
+      "src": "/images/albums/jiujiang-18.webp",
+      "thumbnail": "/images/albums/jiujiang-18-thumb.webp",
+      "alt": "九江摄影作品 18",
+      "caption": "九江 · 18"
+    },
+    {
+      "src": "/images/albums/jiujiang-19.webp",
+      "thumbnail": "/images/albums/jiujiang-19-thumb.webp",
+      "alt": "九江摄影作品 19",
+      "caption": "九江 · 19"
+    },
+    {
+      "src": "/images/albums/jiujiang-20.webp",
+      "thumbnail": "/images/albums/jiujiang-20-thumb.webp",
+      "alt": "九江摄影作品 20",
+      "caption": "九江 · 20"
+    }
+  ]
+}
